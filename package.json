@@ -1,0 +1,22 @@
+{
+  "name": "glb-decompress",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Decompress Draco-compressed GLB files while preserving 3D Tiles metadata",
+  "main": "decompress.mjs",
+  "bin": {
+    "glb-decompress": "./decompress.mjs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@gltf-transform/core": "^4.2.1",
+    "@gltf-transform/extensions": "^4.2.1",
+    "3d-tiles-tools": "^0.5.1",
+    "draco3d": "^1.5.7"
+  }
+}
