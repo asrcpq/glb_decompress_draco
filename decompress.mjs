@@ -21,18 +21,24 @@ try {
   // Remove Draco extension manually
   const root = document.getRoot();
   const extensionsUsed = root.listExtensionsUsed();
+  let dracoFound = false;
   for (const ext of extensionsUsed) {
     if (ext.extensionName === 'KHR_draco_mesh_compression') {
       ext.dispose();
+      dracoFound = true;
     }
+  }
+  if (!dracoFound) {
+    console.log(`Skip uncompressed: ${glbPath}`);
+    process.exit(0);
   }
 
   // Write back
   const outputGlb = await io.writeBinary(document);
   await writeFile(glbPath, Buffer.from(outputGlb));
 
-  console.log(`✓ Decompressed: ${glbPath}`);
+  console.log(`Decompressed: ${glbPath}`);
 } catch (error) {
-  console.error(`✗ Failed: ${error.message}`);
+  console.error(`Error: ${error.message}`);
   process.exit(1);
 }
