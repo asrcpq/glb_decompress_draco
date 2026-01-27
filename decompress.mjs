@@ -3,10 +3,6 @@ import { readFile, writeFile } from 'fs/promises';
 import { GltfTransform } from '3d-tiles-tools';
 
 const glbPaths = process.argv.slice(2);
-if (glbPaths.length === 0) {
-  console.error('Usage: glb-decompress <glb-file> [<glb-file> ...]');
-  process.exit(1);
-}
 
 // Get IO with 3D Tiles extensions registered (once for all files)
 const io = await GltfTransform.getIO();
